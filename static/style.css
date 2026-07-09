@@ -1,0 +1,86 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e2f;
+    color: white;
+    padding: 20px;
+}
+.grelha-jogos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.cartao {
+    background-color: #2f3542;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: transform 0.2s;
+    
+}
+.cartao:hover {
+    transform: scale(1.05);
+}
+
+.cartao img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.lojas {
+    background: #1e1e2f;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: left;
+}
+.precos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #3e4452;
+    padding-bottom: 5px;
+}
+.precos span {
+    font-size: 0.9em;
+    color: #a4b0be;
+}
+
+.preco {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2ed573;
+}
+.desconto {
+    background-color: #ff4757;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.form-procura {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.form-procura input {
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+}
+.form-procura select {
+    padding: 10px;
+    border-radius: 5px;
+}
+.form-procura button {
+    padding: 10px 20px;
+    background-color: #2ed573;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}

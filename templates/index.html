@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang ="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name ="viewport" content ="width=device-width, initial-scale=1.0">
+        <title>Dashboard de Promos</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    </head>
+    <body>
+        <form action="/" method="GET" class="form-procura">
+            <input type="text" name="pesquisa" placeholder="Ex: Zelda, Super Mario..." value="{{ pesquisa_atual }}">
+            <select name="ordem">
+                <option value="relevancia" {% if ordem_atual == 'relevancia' %}selected{% endif %}>Relevância</option>
+                <option value="preco_asc" {% if ordem_atual == 'preco_asc' %}selected{% endif %}>Mais Barato</option>
+                <option value="preco_desc" {% if ordem_atual == 'preco_desc' %}selected{% endif %}>Mais Caro</option>
+                <option value="desconto" {% if ordem_atual == 'desconto' %}selected{% endif %}>Maior Desconto</option>
+            </select>
+            <button type="submit">Procurar</button>
+        </form>
+        <div class="grelha-jogos">
+            {% for jogo in jogos %}
+            <div class="cartao">
+                <img src="{{ jogo.imagem }}" onerror="this.style.display='none'" alt="{{ jogo.nome }}">
+                <h3>{{ jogo.nome }}</h3>
+                <div class="lojas">
+                    {% for loja, detalhes in jogo.ofertas.items() %}
+                    <div class="precos">
+                        <span>{{ loja }}</span>
+                        <div>
+                            <span class="preco">{{ detalhes.preco }} €</span>
+                            {% if detalhes.desconto > 0 %}
+                            <span class="desconto">-{{ detalhes.desconto }}%</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
